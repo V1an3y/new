@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+	
+	<title>Pagina 2</title>
+</head>
+<body>
+	<div style="margin: 24px;">
+		<nav class="navbar navbar-inverse navbar-stick-top">
+			//esta parte de "navbar" la inserte por Bootstrap,lineas 5 y 6
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Inicio </a>
+				<ul class="nav navbar-nav">
+					<li>
+					<a href="menu.html">Menu</a>
+					</li>
+				    <li class="active">
+					<a href="formulario.html">Formulario</a>
+					</li>
+					<li>
+					<a href="resultado.html">resultado</a>
+					</li>
+					<li>
+					<a href="contacto.html">Contacto</a>
+					</li>
+          <li>
+          <a href="pedidorealizado.html">Menu</a> 
+          </li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+  <h1>Formulario</h1>
+
+<form action ="pedidorealizado.html" method="get">
+       <p>Nombre: <Input type ="text" name="nombre" id="nombre" size="40">
+       </p>
+       <p>Apellido: <Input type ="text" name="apellido" id="apellido" size="40">
+       </p>
+       <p>Direccion: <Input type ="text" name="direccion" id="direccion" size="35">
+       </p>
+       <p>Colonia: <Input type ="text" name="colonia" id="colonia" size="40">
+       </p>
+       <p>Telefono: <Input type ="text" name="telefono" id="telefono" size="40">
+         <p>Servilletas:
+          <input type="radio" name="servilletas" value="si"><morado>SI</morado>
+         <input type="radio" name="servilletas" value="no"><rosa>NO</rosa>
+       <p> Que vas a pedir:
+       	<select name="menu" id="menu">
+       		<optgroup label="Lonches">
+       			<option value="Hamburguesa">Hamburguesa</option>
+       			<option value="Tortadelabarda">Torta de la barda</option>
+       			<option value="Sandwich">Sandwich</option>
+       			<option value="Waffles">Waffles</option>
+            <option value="Chesee Sandwich">Chesee Sandwich</option>
+            <option value="Papa Rellena">Papa Rellena</option>
+            <option value="Boneles">Boneles</option>
+            <option value="Burritos">Burritos</option>
+       		</optgroup>
+          <optgroup label="Tacos">
+            <option value="Sincronizadas">Sincronizadas</option>
+            <option value="Tacos de Bistek">Tacos de bistek</option>
+            <option value="Tacos al pastor">Tacos al pastor</option>
+            <option value="Flautas">flautas</option>
+            <option value="Tacos Campechanos">Tacos Campechanos</option>
+          </optgroup>
+       	</select>
+       	<hr>
+       	<h1 style="color: blue">Complementos: </h1>
+       	<input type="checkbox" id="Tomate" checked><label for="Tomate" style="font-size: 20px;">Tomate</label><br>
+       		<input type="checkbox" id="Cebolla" checked><label for="Cebolla" style="font-size: 20px;">Cebolla</label><br>
+          <input type="checkbox" id="Cilantro" checked><label for="Cilantro" style="font-size: 20px;">Cilantro</label><br>
+          <input type="checkbox" id="Pepinillos" checked><label for="Pepinillos" style="font-size: 20px;">Pepinillos</label><br>
+          <input type="checkbox" id="Lechuga" checked><label for="Lechuga" style="font-size: 20px;">Lechuga</label><br>
+          <input type="checkbox" id="Crema" checked><label for="Crema" style="font-size: 20px;">Crema</label><br>
+          <input type="checkbox" id="Catsup" checked><label for="Catsup" style="font-size: 20px;">Catsup</label><br>
+          <input type="checkbox" id="Miel" checked><label for="Miel" style="font-size: 20px;">Miel</label><br>
+          <input type="checkbox" id="Fresa" checked><label for="Fresa" style="font-size: 20px;">Fresa</label><br>
+          <input type="checkbox" id="Kiwi" checked><label for="Kiwi" style="font-size: 20px;">Kiwi</label><br>
+          <input type="checkbox" id="Lechera" checked><label for="Lechera" style="font-size: 20px;">Lechera</label><br>
+       </p>
+       <input type="submit" value="Enviar">
+      <input type="reset" value="Borrar">
+</form>
+<script type="text/javascript">
+	const form=document.getElementById("pedido");
+	form.addEventListener("submit", function(event){
+		event.preventDefault();
+		const formData=new FormData(form);
+		const orden={
+         nombre:formData.get("nombre"),
+         apellido:formData.get("apellido"),
+         telefono:formData.get("telefono"),
+         direccion:formData.get("direccion"),
+         colonia:formData.get("colonia"),
+         servilletas:formData.get("servilletas"),
+         menu:formData.get("menu"),
+              tomate:document.getElementById("Tomate").checked ? "Si" : "No",
+              cebolla:document.getElementById("Cebolla").checked ? "Si" : "No",
+              cilantro:document.getElementById("Cilantro").checked ? "Si" : "No",
+              pepinillos:document.getElementById("Pepinillos").checked ? "Si" : "No",
+              lechuga:document.getElementById("Lechuga").checked ? "Si" : "No",
+              crema:document.getElementById("Crema").checked ? "Si" : "No",
+              catsup:document.getElementById("Catsup").checked ? "Si" : "No",
+              miel:document.getElementById("Miel").checked ? "Si" : "No",
+              fresa:document.getElementById("Fresa").checked ? "Si" : "No",
+              kiwi:document.getElementById("Kiwi").checked ? "Si" : "No",
+              lechera:document.getElementById("Lechera").checked ? "Si" : "No",
+		};
+		localStorage.setItem("orden", JSON.stringify(orden));
+		window.loction.href="pedidorealizado.html";
+	});
+</script>
+</body>
+</html>
